@@ -1,42 +1,31 @@
 <template>
   <div class="container">
-    <div>
-      <logo />
-      <h1 class="title">
-        ewaDev
-      </h1>
-      <h2 class="subtitle">
-        Ewa&#39;s corner of the internet
-      </h2>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey"
-        >
-          GitHub
-        </a>
-      </div>
+    <div class="">
+       <div class="greetingStyle anime"> {{greeting}}</div>
+       <!-- <p> Welcome to my corner of the internet</p> -->
+       
+       
     </div>
+
   </div>
+  
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
-import Logo from '~/components/Logo.vue'
 
-export default Vue.extend({
-  components: {
-    Logo
+export default {
+
+  asyncData (context) {
+ 
+    function determineGreeting() : string {
+      const greetings = ['Hello.', 'O hai there.', 'Howdy.', 'Awright?']
+      const rand = Math.floor(Math.random() * greetings.length);
+      return greetings[rand];
+    }
+
+     return { greeting: determineGreeting() }
   }
-})
+}
 </script>
 
 <style>
@@ -75,4 +64,34 @@ export default Vue.extend({
 .links {
   padding-top: 15px;
 }
+
+.greetingStyle{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 100px;
+}
+
+.anime {
+    overflow: hidden; /* Ensures the content is not revealed until the animation */
+        border-right: .15em solid black; /* The typwriter cursor */
+        white-space: nowrap; /* Keeps the content on a single line */
+        margin: 1 auto; /* Gives that scrolling effect as the typing happens */
+        letter-spacing: .15em; /* Adjust as needed */
+        animation: 
+          typing 0.5s steps(40, end),
+          blink-caret 0.8s step-end infinite;
+    
+      }
+ 
+  /* The typing effect */
+  @keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+  }
+  
+  /* The typewriter cursor effect */
+  @keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: black; }
+  }
 </style>
