@@ -15,7 +15,7 @@
 
 export default {
 
-  asyncData (context) {
+  asyncData () {
  
     function determineGreeting() : string {
       const greetings = ['Hello.', 'O hai there.', 'Howdy.', 'Awright?']
