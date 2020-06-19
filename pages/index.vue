@@ -1,14 +1,13 @@
 <template>
-  <div class="container">
-    <div class="">
-       <div class="greetingStyle anime"> {{greeting}}</div>
-       <!-- <p> Welcome to my corner of the internet</p> -->
-       
-       
-    </div>
 
+  <div class="container">
+    <div class="mobileSpace">
+       <div class="greetingStyle anime"> 
+         <p>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</p>  
+         </div>
+       <!-- <p> Welcome to my corner of the internet</p> -->
+    </div>
   </div>
-  
 </template>
 
 <script lang="ts">
@@ -43,28 +42,6 @@ export default {
   text-align: center;
 }
 
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
-}
-
 .greetingStyle{
     font-family: 'Montserrat', sans-serif;
     font-weight: 900;
@@ -72,9 +49,10 @@ export default {
 }
 
 .anime {
-    overflow: hidden; /* Ensures the content is not revealed until the animation */
+  width: inherit; 
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
         border-right: .15em solid black; /* The typwriter cursor */
-        white-space: nowrap; /* Keeps the content on a single line */
+       
         margin: 1 auto; /* Gives that scrolling effect as the typing happens */
         letter-spacing: .15em; /* Adjust as needed */
         animation: 
@@ -94,4 +72,15 @@ export default {
     from, to { border-color: transparent }
     50% { border-color: black; }
   }
+  @media screen and (max-width: 600px) {
+  .mobileSpace {
+     width: inherit;
+  }
+  .greetingStyle{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 50px;
+  }
+
+}
 </style>
